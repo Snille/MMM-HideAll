@@ -48,6 +48,9 @@ In your custome.css add the following rows.
 .hide-toggle div{
 	position: absolute;
 		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
 	font-size: 55px;
 }
 ````
