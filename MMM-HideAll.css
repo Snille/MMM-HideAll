@@ -21,12 +21,12 @@
 	z-index: 100;
 }
 
-.hide-toggle span{
+.hide-toggle div{
 	position: absolute;
-		top: 5px;
+		top: 9px;
 		right: 0px;
 		bottom: 0px;
 		left: 0px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 40px;
 }
