@@ -2,7 +2,73 @@ MMM-HideAll
 ===
 [MagicMirror](https://github.com/MichMich/MagicMirror) Module to hide everything on screen.
 
-Setup:
+### Screen shots
+
+Different styles:
+
+This is the default view
+
+![Normal](.github/normal.png)
+
+Keep the ring add a new symbol
+
+![Eye in Ring](.github/eye-ring.png)
+
+````javascript
+{
+	module: 'MMM-HideAll',
+	position: 'bottom_right'
+	config: {
+		symbol: "eye"
+	}
+},
+````
+
+Maybe a smile without the ring?
+
+![Smile](.github/smile.png)
+
+````javascript
+{
+	module: 'MMM-HideAll',
+	position: 'bottom_right'
+	config: {
+		symbol: "smile"
+	}
+},
+````
+
+In your custome.css add the following rows.
+
+````CSS
+.hide-toggle{
+	border: 0px solid #FFF;
+}
+
+.hide-toggle div{
+	position: absolute;
+		top: 0px;
+	font-size: 55px;
+}
+````
+
+The old default
+
+![Old](.github/old.png)
+
+````javascript
+{
+	module: 'MMM-HideAll',
+	position: 'bottom_left',
+	config: {
+		hidetext: "Hide",
+		showtext: "Show",
+		symbol: ""
+	}
+},
+````
+
+Options for Setup:
 ---
 * Add the following to your config:
 ````javascript
