@@ -23,8 +23,10 @@ Module.register("MMM-HideAll",{
 		fadeSpeed: 1000,
 		// Visibility of button when modules are hidden 1.0 (full visibility) - 0.0 (no visibility).
 		vishidden: 0.3,
-		// Font awesome symbol instead of text.
-		symbol: "hand-point-down",
+		// Font awesome symbol to show when modules are hidden (instead of text).
+		symbolhide: "toggle-off",
+		// Font awesome symbol to show when modules are shown (instead of text).
+		symbolshow: "toggle-on"
     },
     
 	// Load the jquery file.
@@ -49,16 +51,19 @@ Module.register("MMM-HideAll",{
 		var fadeSpeed = this.config.fadeSpeed;
 		var visshown = this.config.visshown;
 		var vishidden = this.config.vishidden;
+		var symbolhide = this.config.symbolhide;
+		var symbolshow = this.config.symbolshow;
 		
 		overlay.className = "paint-it-black";
 		
 		button.className = "hide-toggle";
 		button.appendChild(text);
 		text.innerHTML = buttontexthide;
-        if (this.config.symbol) {
-            symbol.className = "hideall-picture fa fa-" + this.config.symbol;
-            button.appendChild(symbol);
+		if (symbolshow) {
+			symbol.className = "hideall-picture fa fa-" + symbolshow;
+			button.appendChild(symbol);
 		}
+
 		wrapper.appendChild(button);
 		wrapper.appendChild(overlay);
 		
@@ -67,11 +72,19 @@ Module.register("MMM-HideAll",{
 				$(overlay).fadeIn(fadeSpeed);
 				$(button).fadeTo(fadeSpeed, vishidden);
 				$(text).html(buttontextshow);
+				if (symbolhide) {
+					symbol.className = "hideall-picture fa fa-" + symbolhide;
+					button.appendChild(symbol);
+				}
 				hidden = false;
 			} else {
 				$(overlay).fadeOut(fadeSpeed);
 				$(button).fadeTo(fadeSpeed, 1);
 				$(text).html(buttontexthide);
+				if (symbolshow) {
+					symbol.className = "hideall-picture fa fa-" + symbolshow;
+					button.appendChild(symbol);
+				}
 				hidden = true;
 			}
 		});
