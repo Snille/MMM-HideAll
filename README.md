@@ -6,8 +6,6 @@ MMM-HideAll
 
 Different styles:
 
-This is the default view
-
 ![Normal](.github/normal.png)
 
 Keep the ring add a new symbol
@@ -19,7 +17,8 @@ Keep the ring add a new symbol
 	module: 'MMM-HideAll',
 	position: 'bottom_right'
 	config: {
-		symbol: "eye"
+		symbolhide: "eye",
+		symbolshow: "eye"
 	}
 },
 ````
@@ -33,7 +32,8 @@ Maybe a smile without the ring?
 	module: 'MMM-HideAll',
 	position: 'bottom_right'
 	config: {
-		symbol: "smile"
+		symbolhide: "smile",
+		symbolshow: "smile"
 	}
 },
 ````
@@ -66,10 +66,20 @@ The old default
 	config: {
 		hidetext: "Hide",
 		showtext: "Show",
-		symbol: ""
+		symbolhide: "",
+		symbolshow: ""
 	}
 },
 ````
+
+The deafult view looks like this:
+
+Modules shown:
+![Modules Shown](.github/normal-dual1.png)
+
+Modules hidden:
+![Modules Hidden](.github/normal-dual2.png)
+
 
 Options for Setup:
 ---
@@ -83,18 +93,21 @@ Options for Setup:
 		showtext: "",
 		fadeSpeed: 1000,
 		vishidden: 0.3,
-		symbol: "hand-point-down"
+		symbolhide: "toggle-off",
+		symbolshow: "toggle-on"
+
 	}
 },
 ````
 
-| Option | Description |
-|---|---| 
-|`hidetext`|The text on the hide button.<br>**Default value:** ``|
-|`showtext`|The text on the show button.<br>**Default value:** ``|
-|`fadeSpeed`|Speed of the fade.<br>**Default value:** `1000`|
-|`vishidden`|How visual the "show" button shall be when everything else is hidden (0.0 - 1.0)<br>**Default value:** `0.3`|
-|`symbol`|If you don't want text on your button, you can use any symbol from Font Awesome.<br>**Default value:** `hand-point-down`|
+| Option | Default | Description |
+|---|---|---| 
+|`hidetext`|``|The text on the hide button.|
+|`showtext`|``|The text on the show button.|
+|`fadeSpeed`|1000|Speed of the fade.|
+|`vishidden`|0.3|How visual the "show" button shall be when everything else is hidden (0.0 - 1.0)|
+|`symbolhide`|`toggle-off`|Font awesome symbol to show when modules are hidden (instead of text)|
+|`symbolshow`|`toggle-on`|Font awesome symbol to show when modules are shown (instead of text)|
 
 Once the module is loaded correctly, simple click or tap the 'Hide' button. Click it again to get everything back.
 
