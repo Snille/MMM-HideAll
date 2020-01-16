@@ -72,6 +72,15 @@ The old default
 },
 ````
 
+The deafult view looks like this:
+
+Modules shown:
+![Modules Shown](.github/normal-dual1.png)
+
+Modules hidden:
+![Modules Hidden](.github/normal-dual2.png)
+
+
 Options for Setup:
 ---
 * Add the following to your config:
