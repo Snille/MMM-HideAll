@@ -111,6 +111,8 @@ Options for Setup:
 
 Once the module is loaded correctly, simple click or tap the 'Hide' button. Click it again to get everything back.
 
-* Note
+* Notes
 
 This requires the ability for you to click the button. It is not voice activated.
+
+If you intend to use the [MMM-Modulebar](https://github.com/Snille/MMM-Modulebar) you can skip this module, the modulebar have the same function built in if you want, just use the "all" button. :)
