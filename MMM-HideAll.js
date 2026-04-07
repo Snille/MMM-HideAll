@@ -1,9 +1,9 @@
 /* global Module */
 
-/* Magic Mirror
- * Module: MMM Hide All
+/* MagicMirror²
+ * Module: MMM-HideAll
  * Created by: masters1222 (https://github.com/masters1222)
- * Modified my Snille (https://github.com/Snille)
+ * Modified by Snille (https://github.com/Snille)
  *
  * By EoF https://forum.magicmirror.builders/user/eof
  * MIT Licensed.
@@ -27,68 +27,59 @@ Module.register("MMM-HideAll",{
 		symbolhide: "toggle-off",
 		// Font awesome symbol to show when modules are shown (instead of text).
 		symbolshow: "toggle-on"
-    },
-    
-	// Load the jquery file.
-	getScripts: function() {
-		return ["modules/MMM-HideAll/js/jquery.js"];
 	},
+
 	// Load the font awesome symbols and the defined styles.
 	getStyles: function() {
 		return ["font-awesome.css", "MMM-HideAll.css"];
 	},
-	
+
 	getDom: function() {
-		var wrapper = document.createElement("div");
-		var button = document.createElement("div");
-		var text = document.createElement("div");
-		var symbol = document.createElement("div");
-		var overlay = document.createElement("div");
-		var hidden = true;
-		
-		var buttontexthide = this.config.hidetext;
-		var buttontextshow = this.config.showtext;
-		var fadeSpeed = this.config.fadeSpeed;
-		var visshown = this.config.visshown;
-		var vishidden = this.config.vishidden;
-		var symbolhide = this.config.symbolhide;
-		var symbolshow = this.config.symbolshow;
-		
+		const wrapper = document.createElement("div");
+		const button = document.createElement("button");
+		const text = document.createElement("div");
+		const symbol = document.createElement("div");
+		const overlay = document.createElement("div");
+		let hidden = true;
+
+		const buttontexthide = this.config.hidetext;
+		const buttontextshow = this.config.showtext;
+		const fadeSpeed = this.config.fadeSpeed;
+		const vishidden = this.config.vishidden;
+		const symbolhide = this.config.symbolhide;
+		const symbolshow = this.config.symbolshow;
+
 		overlay.className = "paint-it-black";
-		
+		overlay.style.transitionDuration = `${fadeSpeed}ms`;
+
 		button.className = "hide-toggle";
+		button.type = "button";
+		button.style.transitionDuration = `${fadeSpeed}ms`;
+		button.setAttribute("aria-label", "Toggle screen visibility");
+
 		button.appendChild(text);
-		text.innerHTML = buttontexthide;
-		if (symbolshow) {
-			symbol.className = "hideall-picture fa fa-" + symbolshow;
+		text.textContent = buttontexthide;
+		if (symbolshow || symbolhide) {
+			symbol.className = `hideall-picture fa fa-${symbolshow}`;
 			button.appendChild(symbol);
 		}
 
 		wrapper.appendChild(button);
 		wrapper.appendChild(overlay);
-		
-		$(button).on("click", function(){
-			if (hidden) {
-				$(overlay).fadeIn(fadeSpeed);
-				$(button).fadeTo(fadeSpeed, vishidden);
-				$(text).html(buttontextshow);
-				if (symbolhide) {
-					symbol.className = "hideall-picture fa fa-" + symbolhide;
-					button.appendChild(symbol);
-				}
-				hidden = false;
-			} else {
-				$(overlay).fadeOut(fadeSpeed);
-				$(button).fadeTo(fadeSpeed, 1);
-				$(text).html(buttontexthide);
-				if (symbolshow) {
-					symbol.className = "hideall-picture fa fa-" + symbolshow;
-					button.appendChild(symbol);
-				}
-				hidden = true;
+
+		button.addEventListener("click", () => {
+			hidden = !hidden;
+			overlay.classList.toggle("paint-it-black--visible", !hidden);
+			button.classList.toggle("hide-toggle--hidden", !hidden);
+			button.style.opacity = hidden ? 1 : vishidden;
+			text.textContent = hidden ? buttontexthide : buttontextshow;
+
+			if (symbolshow || symbolhide) {
+				const iconName = hidden ? symbolshow : symbolhide;
+				symbol.className = iconName ? `hideall-picture fa fa-${iconName}` : "hideall-picture";
 			}
 		});
-		
+
 		return wrapper;
 	}
 });

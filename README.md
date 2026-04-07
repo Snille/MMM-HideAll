@@ -1,8 +1,8 @@
-MMM-HideAll
-===
-[MagicMirror](https://github.com/MichMich/MagicMirror) Module to hide everything on screen.
+# MMM-HideAll
 
-### Screen shots
+[MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) module to hide everything on screen.
+
+## Screenshots
 
 Different styles:
 
@@ -38,7 +38,7 @@ Maybe a smile without the ring?
 },
 ````
 
-In your custome.css add the following rows.
+In your `custom.css` add the following rows.
 
 ````CSS
 .hide-toggle{
@@ -80,10 +80,39 @@ Modules shown:
 Modules hidden:
 ![Modules Hidden](.github/normal-dual2.png)
 
+## Installation
 
-Options for Setup:
----
-* Add the following to your config:
+In your terminal, go to your MagicMirror² `modules` folder:
+
+```bash
+cd ~/MagicMirror/modules
+```
+
+Clone this repository:
+
+```bash
+git clone https://github.com/Snille/MMM-HideAll.git
+```
+
+Enter the folder:
+
+```bash
+cd MMM-HideAll
+```
+
+## Update
+
+To update the module:
+
+```bash
+cd ~/MagicMirror/modules/MMM-HideAll
+git pull
+npm install
+```
+
+## Configuration
+
+Add the following to your config:
 ````javascript
 {
 	module: 'MMM-HideAll',
@@ -111,8 +140,8 @@ Options for Setup:
 
 Once the module is loaded correctly, simple click or tap the 'Hide' button. Click it again to get everything back.
 
-* Notes
+## Notes
 
 This requires the ability for you to click the button. It is not voice activated.
 
-If you intend to use the [MMM-Modulebar](https://github.com/Snille/MMM-Modulebar) you can skip this module, the modulebar have the same function built in if you want, just use the "all" button. :)
+If you intend to use the [MMM-Modulebar](https://github.com/Snille/MMM-Modulebar) you can skip this module, the modulebar has the same function built in if you want it, just use the "all" button.
