@@ -1,6 +1,7 @@
 {
-  "name": "MMM-HideAll",
+  "name": "mmm-hideall",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "MagicMirror² module to hide/show all modules on the screen.",
   "repository": {
     "type": "git",
@@ -10,6 +11,11 @@
     "magicmirror",
     "magicmirror²",
     "MagicMirror²",
+    "visibility",
+    "show",
+    "hide",
+    "screen",
+    "toggle",
     "smart mirror",
     "module"
   ],
