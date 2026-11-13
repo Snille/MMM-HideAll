@@ -107,7 +107,7 @@ To update the module:
 ```bash
 cd ~/MagicMirror/modules/MMM-HideAll
 git pull
-npm install
+npm ci --omit=dev
 ```
 
 ## Configuration
